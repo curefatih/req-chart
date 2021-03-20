@@ -8,7 +8,7 @@
 
 Kafka için docker compose üzerinde bitnami tarafından hazırlanmış ve güncel tutulan [docker imajı](https://hub.docker.com/r/bitnami/kafka) kullanıldı.
 
-### 1.2 Kafka Producer/Consumer
+### 1.2 Kafka Consumer
 
 `docker-compose: consumer`
 
@@ -27,7 +27,7 @@ Ana paket olarak `confluentinc/confluent-kafka-go` kullanıldı
 ### 1.4 REST API
 `docker-compose: rest_api`
 
-Golang `mux` ve `confluentinc/confluent-kafka-go` ile birlikte kullanıldı.
+Golang `mux` ve `confluentinc/confluent-kafka-go` ile birlikte kullanıldı. Rest API, kafka producer ile birlikte kullanıldı.
 Log kayıtları `logfile` adlı dosyası üzerinde bulunmakta.
 
 ### 1.5 WebSocket Server
