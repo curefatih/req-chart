@@ -1,0 +1,16 @@
+{
+  "name": "ws_server",
+  "version": "1.0.0",
+  "description": "web socket server for streaming request information",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Fatih Cüre",
+  "license": "ISC",
+  "dependencies": {
+    "pg": "^8.5.1",
+    "pg-listen": "^1.7.0",
+    "socket.io": "^4.0.0"
+  }
+}
