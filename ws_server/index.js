@@ -17,7 +17,16 @@ const client = new Client({
     port: 5432,
 });
 
-client.connect();
+
+
+client.connect(err => {
+    if (err){
+        console.log("Error while connecting");
+    }else {
+        console.log("db connected");
+    }
+})
+
 
 client.query("LISTEN new_data")
 
@@ -29,11 +38,13 @@ io.on("connection", (socket) => {
         if (err) {
             console.log(err.stack)
         } else {
+            console.log("Emitin initial data to", socket.id);
             socket.emit("data", res.rows)
         }
     })
 
     client.on("notification", async (data) => {
+        console.log("Emiting new data to", socket.id);
         socket.emit("new", JSON.parse(data.payload))
     })
 });
