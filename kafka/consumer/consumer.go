@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"strconv"
 	"strings"
+	"time"
 
 	"gopkg.in/confluentinc/confluent-kafka-go.v1/kafka"
 	"gorm.io/driver/postgres"
@@ -36,7 +37,23 @@ func main() {
 	})
 
 	if err != nil {
-		panic(err)
+		fmt.Println(err)
+
+		// retry connection
+		for err != nil {
+
+			time.Sleep(2 * time.Second)
+
+			c, err = kafka.NewConsumer(&kafka.ConfigMap{
+				"bootstrap.servers": "kafka",
+				"group.id":          "consumer1",
+				"auto.offset.reset": "earliest",
+			})
+
+			if err != nil {
+				fmt.Println(err)
+			}
+		}
 	}
 
 	c.SubscribeTopics([]string{"apiRequests"}, nil)

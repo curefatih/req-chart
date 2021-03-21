@@ -12,11 +12,12 @@ RUN go build -tags musl -o ./bin/consumer consumer/*.go
 
 FROM alpine:latest
 
-RUN apk --no-cache add ca-certificates
+RUN apk --no-cache add ca-certificates bash
 
 WORKDIR /
 
 COPY --from=builder /bin/consumer .
+COPY --from=builder /wait-for-it.sh .
 
 RUN chmod +x ./consumer
 
