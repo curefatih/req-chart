@@ -13,7 +13,10 @@ Kafka için docker compose üzerinde bitnami tarafından hazırlanmış ve günc
 `docker-compose: consumer`
 
 Golang ile consumer implemente edildi. 
-Ana paket olarak `confluentinc/confluent-kafka-go` kullanıldı  
+Ana paket olarak `confluentinc/confluent-kafka-go` kullanıldı.
+
+> 30 saniye kadar veri tabanını bekler. Yeterli olmaz ise `docker-compose>consumer>command` altında `--timeout=30` değerini değiştirin.
+
 
 ### 1.3 Arayüz
 
@@ -23,6 +26,7 @@ Ana paket olarak `confluentinc/confluent-kafka-go` kullanıldı
 
 🌟 `localhost:80` üzerinde çalışmakta.
 
+> Belirli bir sürede istek atıp cevabı yorumlamak yerine web socket ile **sadece değişiklikler**(başlangıç verisi hariç) alınarak grafiğe uygulandı. 
 
 ### 1.4 REST API
 `docker-compose: rest_api`
@@ -34,6 +38,8 @@ Log kayıtları `logfile` adlı dosyası üzerinde bulunmakta.
 `docker-compose: ws_server`
 
 Node.js kullanıldı. UI beslemek için socket.io server için hazırlandı. Veri tabanı üzerindeki değişiklikler veritabanı üzerindeki trigger ile (PostgreSQL'de bulunan `notification` ile) dinlenerek değişiklikler socket io ile arayüze gönderildi.
+
+> 30 saniye kadar veri tabanını bekler. Yeterli olmaz ise `docker-compose>ws_server>command` altında `--timeout=30` değerini değiştirin.
 
 ### 1.6 Database
 `docker-compose: db`
