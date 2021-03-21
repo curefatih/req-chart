@@ -18,8 +18,10 @@ services:
     build: 
       context: ./kafka
       dockerfile: Dockerfile.consumer
+    command: ["./wait-for-it.sh", "db:5432", "--timeout=30", "--", "./consumer"]
     depends_on: 
       - db
+      - kafka
 
   rest_api:
     build: 
@@ -36,6 +38,7 @@ services:
   ws_server:
     build: 
       context: ./ws_server
+    command: ["./wait-for-it.sh", "db:5432", "--timeout=30", "--", "node", "index.js"]
     ports:
       - "3000:3000"
     depends_on: 
