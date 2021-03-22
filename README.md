@@ -59,6 +59,11 @@ PostgreSQL imajı üzerine veri akışını yakalamak için ön tanımlı olacak
 - PUT isteği `curl --location --request PUT 'localhost:8080/'` 
 - DELETE isteği `curl --location --request DELETE 'localhost:8080/'`
 
+## Görev metni okuyucu
+
+`task-reader` dizinin altında verilmiştir. 
+İlk kısımda dosyaların isimleri base64 encode edilerek çıkan sonuç yeni ismi olacak şekilde güncellendi. Sonrasında binary'den karakterlere çevrilerek görev metni oluşturuldu.
+
 ## Anahtar Kodu
 
 ```
