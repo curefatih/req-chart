@@ -1,0 +1,43 @@
+# Görev
+
+```
+Tebrikler Fatih Cüre, görev içeriğine ulaştın!
+
+İşte beklediğimiz görevin gereksinimleri;
+
+Tercih ettiğiniz bir dil ile (tercihen Java / Go / PHP / Python) yapılacak bir REST API'da GET, POST, PUT ve DELETE isteklerini karşılayabilecek 4 farklı endpoint sunulmalıdır. POST ve PUT metotları, istekleri boş request body ile kabul edebilmelidir.
+
+Bu API'ye gelen her istek için random 0-3 sn arasında başarılı bir yanıt dönmeli ve yanıt dönülmeden hemen önce "{metot tipi},{istek cevaplama ms},{timestamp}" gibi bir içerik ile log 
+dosyasına isteğin ne kadar sürdüğü yazılmalıdır. Örn log: "GET,1000,1614679220"
+
+Async bir job, log dosyasına anlık olarak yazılan satırları alıp Kafka'ya belirlenen bir formatta göndermelidir.
+
+Bir consumer Kafka'ya gönderilen log bilgisini yakalayıp, uygun görülen bir veritabanına yazmalıdır (RDBMS veya NoSQL gibi).
+
+Son 1 saatteki API isteklerinin ne kadar sürede tamamlandıkları bir dashboard ekranında grafik olarak gösterilmeli ve grafik canlı olarak güncellenmelidir.
+
+İstek tiplerine (PUT,DELETE gibi) göre ayrı renklendirme yapılmalıdır.
+
+Örnek grafik ekran görüntüsü;
+
+https://??.com/wp-content/uploads/2021/03/cekirdekten_yetisenler_usg_dashboard.png
+
+
+Kod deposunu bize iletirken senden istediğimiz sana özel anahtar kodu: gAAAAABgUNh0e2AcWHxi8aa5h6nf7Fg1QtSxScOciKo9xXl5M1iu21r4oMMwXnYm70it_Pm6-Cce0VrQSwNTjRpz_u0qNHL00hfZ8Ujk4vlZgZiCzvbJTrosNUJ3s3ftmm0mGh_Z97leoQt-RCokRal9vJgYWYpzHwn2EcouR5DpeHDWBRs0tOC7noNz2frdH7gd5Lom9ipH
+
+
+Notlar;
+
+* Uygulamanın ve ara yüzün Docker ile nasıl derlenip çalışır hale getirileceği README olarak yazılmış olmalıdır. Docker-compose üzerinden tek bir komut ile çalışacak şekilde servis edilmelidir. Veritabanı gibi bağımlılıklar da içerisinde yer almalıdır.
+
+* README içerisinde servis endpoint'lerine nasıl istek atılacağı, ara yüz adresinin ne olduğu gibi projenin nasıl çalıştırılacağına dair bilgiler yer almalıdır.
+
+* Yukarıda verilen sana özel anahtar kodu da README içerisine eklenmelidir.
+
+* Görev içeriğine ulaşmak için kullanılan kod ve proje GitHub, GitLab, Bitbucket gibi erişime açık bir repo'ya gönderilerek, bağlantı adresi insankaynaklari@??.com'a iletilmelidir. Kod deposu üzerinden paylaşım sağlanamıyorsa, indirilebilir dosyalara ulaşmamız için bir dosya/bağlantı iletilmelidir.
+
+
+Görevlerdeki tüm gereksinimleri yerine getiremediyseniz bile, moralinizi bozmayın ve tamamladığınız kadarını bizimle mutlaka paylaşın.
+
+Kolay gelsin!
+```
